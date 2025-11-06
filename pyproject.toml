@@ -1,19 +1,20 @@
 [project]
 name = "imp2importlib"
 version = "0.1.0"
-description = "Default template for PDM package"
-authors = [
-    {name = "Waket Zheng", email = "waketzheng@gmail.com"},
-]
-dependencies = []
+description = "Fixes `ModuleNotFoundError: No module named 'imp'` for Python3.12+"
+authors = [{name = "Waket Zheng", email = "waketzheng@gmail.com"}]
 requires-python = ">=3.7"
 readme = "README.md"
 license = {text = "MIT"}
+dependencies = []
+
+[project.urls]
+homepage = "https://github.com/waketzheng/imp2importlib"
+repository = "https://github.com/waketzheng/imp2importlib.git"
 
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
-
 
 [tool.pdm]
 distribution = true
