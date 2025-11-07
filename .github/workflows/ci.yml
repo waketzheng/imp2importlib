@@ -41,6 +41,6 @@ jobs:
       - name: Install deps
         run: uv sync
       - name: Check code style and Type Hint
-        run: uvx --from fastdevcli-slim fast check
+        run: make _check
       - name: Run Tests
-        run: uvx --from fastdevcli-slim fast test
+        run: make _test
