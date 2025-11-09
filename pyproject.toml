@@ -1,6 +1,6 @@
 [project]
 name = "imp2importlib"
-version = "0.1.0"
+version = "0.1.1"
 description = "Fixes `ModuleNotFoundError: No module named 'imp'` for Python3.12+"
 authors = [{name = "Waket Zheng", email = "waketzheng@gmail.com"}]
 requires-python = ">=3.7"
