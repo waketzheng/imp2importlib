@@ -1,6 +1,7 @@
 # Copied from https://docs.python.org/3/whatsnew/3.12.html#whatsnew312-removed-imp
 import importlib.machinery
 import importlib.util
+from .find_module import find_module
 
 
 def load_source(modname, filename):
