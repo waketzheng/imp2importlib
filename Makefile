@@ -12,56 +12,50 @@ help:
 	@echo  "    build   Build wheel file and tar file from source to dist/"
 
 up:
-	uv lock --upgrade
-	uv sync --frozen
+	just up
 
 lock:
-	uv lock
+	just lock
 
 venv:
-	pdm venv create $(options) $(version)
+	just venv $(options) $(version)
 
 venv312:
 	$(MAKE) venv version=3.12
 
 deps:
-	uv sync --all-extras --all-groups $(options)
+	just deps $(options)
 
 start:
-	pre-commit install
-	$(MAKE) deps
+	just start
 
 _check:
-	uvx --from fastdevcli-slim fast check
+	jsut _check
 check: deps _build _check
 
 _lint:
-	uvx --from fastdevcli-slim fast lint $(options)
+	just _lint $(options)
 lint: deps _build _lint
 
 _test:
-	uvx --from fastdevcli-slim fast test
+	just _test
 test: deps _test
 
 _style:
-	uvx --from fastdevcli-slim fast lint --skip-mypy
+	just _lint --skip-mypy
 style: deps _style
 
 _build:
-	rm -fR dist/
-	uv build
+	just _build
 build: deps _build
 
 bump_part = patch
 
 _bump:
-	uvx --from fastdevcli-slim fast bump $(bump_part) $(bump_opts)
+	just _bump $(bump_part) $(bump_opts)
 bump: deps _bump
 
 release: deps _build
-	# fast upload -- Use github action instead
-	$(MAKE) _bump bump_opts=--commit
-	$(MAKE) deps
-	uvx --from fastdevcli-slim fast tag
+	just release
 
 ci: check _test
