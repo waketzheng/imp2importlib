@@ -16,9 +16,6 @@ on:
 permissions:
   contents: read
 
-env:
-  UV_SYSTEM_PYTHON: 1
-
 jobs:
   ci:
     runs-on: ubuntu-latest
@@ -38,9 +35,10 @@ jobs:
           activate-environment: true
           enable-cache: true
       - uses: astral-sh/ruff-action@v3
+      - uses: extractions/setup-just@v3  # Or: uv tool install rust-just
       - name: Install deps
-        run: uv sync
+        run: just deps
       - name: Check code style and Type Hint
-        run: make _check
+        run: just _check
       - name: Run Tests
-        run: make _test
+        run: just _test
