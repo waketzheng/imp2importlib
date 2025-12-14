@@ -1,7 +1,6 @@
 import importlib.util
 import importlib.machinery
 import sys
-from types import ModuleType
 from typing import Optional, Tuple, List, IO
 
 
