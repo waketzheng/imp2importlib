@@ -39,3 +39,9 @@ dev = [
     "mypy>=1.4.1",
     "pytest>=7.4.4",
 ]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint.per-file-ignores]
+"find_module.py" = ["SIM115"]

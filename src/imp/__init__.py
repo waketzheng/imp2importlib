@@ -1,7 +1,9 @@
 # Copied from https://docs.python.org/3/whatsnew/3.12.html#whatsnew312-removed-imp
 import importlib.machinery
 import importlib.util
+
 from .find_module import find_module
+
 
 def load_source(modname, filename):
     loader = importlib.machinery.SourceFileLoader(modname, filename)
@@ -13,4 +15,5 @@ def load_source(modname, filename):
     loader.exec_module(module)
     return module
 
-__all__ = [find_module, load_source]
+
+__all__ = ["find_module", "load_source"]
