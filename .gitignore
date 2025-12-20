@@ -127,8 +127,11 @@ celerybeat.pid
 env/
 venv/
 ENV/
+
+# Backups
 env.bak/
 venv.bak/
+*.bak
 
 # Spyder project settings
 .spyderproject
